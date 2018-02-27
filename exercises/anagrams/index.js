@@ -8,6 +8,26 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+
+// Method 1 // 
+function parseString(str) {
+	return str.replace(/[^\w]/g,'').toLowerCase().split('').sort().join();
+}
+
+function anagrams(stringA, stringB) {
+	return parseString(stringA) === parseString(stringB);
+}
+
+
+// Method 2 //
+function charCounter(str) {
+  str = parseString(str);
+	return str.split('').reduce(function(obj, char) {obj[char] = obj[char]+1 || 1; return obj }, {})
+}
+
+function anagrams2(stringA, stringB) {
+	return JSON.stringify(charCounter(stringA)) === JSON.stringify(charCounter(stringB))
+}
+
 
 module.exports = anagrams;
