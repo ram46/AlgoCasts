@@ -8,6 +8,12 @@
 //   reverseInt(-15) === -51
 //   reverseInt(-90) === -9
 
-function reverseInt(n) {}
+function reverseInt(n) {
+  
+  var numStr = n.toString().split('').reduce(function(acc, digit) {return digit + acc}, '')
+  // Method 2 //
+  // var numStr = n.toString().split('').reverse().join('')
+  return parseInt(numStr) * Math.sign(n);
+}
 
 module.exports = reverseInt;
