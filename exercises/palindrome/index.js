@@ -7,6 +7,18 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+function palindrome(str) {
+	var reversedStr = str.split('').reduce(function(acc, char) {return char + acc }, '');
+  	return str === reversedStr;
+}
+
+
+// Method 2 //
+// not a good solution because duplicated checking but still good to know diff ways
+function palindrome2(str) {
+  return str.split('').every(function(char, index) {
+    return char === str[str.length - index - 1]
+  })
+}
 
 module.exports = palindrome;
